@@ -23,11 +23,10 @@
     (change)="onChangeSearchText()">Name</mat-checkbox>
   <mat-checkbox color="primary" class="margin" [(ngModel)]="isSearchDes"
     (change)="onChangeSearchText()">Description</mat-checkbox>
-  <mat-checkbox color="primary" class="margin" [(ngModel)]="isSearchSkills" (change)="onChangeSearchText()">Skills /
-    Learning outcomes</mat-checkbox>
-  <mat-checkbox color="primary" class="margin" [(ngModel)]="isSearchSourceDocs" (change)="onChangeSearchText()">Source
-    Documents</mat-checkbox>
-
+  <mat-checkbox color="primary" class="margin" [(ngModel)]="isSearchSkills" (change)="onChangeSearchText()">
+    Learning Objectives</mat-checkbox>
+  <mat-checkbox color="primary" class="margin" [(ngModel)]="isSearchSourceDocs"
+    (change)="onChangeSearchText()">References</mat-checkbox>
 
 
 </section>
@@ -49,6 +48,69 @@
 
         <div id="textInfo" #textInfo> Loading...
         </div>
+
+        <mat-accordion id="bokaccordion">
+          <!--           <mat-expansion-panel expanded="true" (opened)="panelOpenStateAbs = true" (closed)="panelOpenStateAbs = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Abstract
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div #bokabstract id="bokabstract"></div>
+          </mat-expansion-panel> -->
+          <mat-expansion-panel (opened)="panelOpenStateInt = true" (closed)="panelOpenStateInt = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Introduction
+              </mat-panel-title>
+              <mat-panel-description>
+                This topic does not have introduction
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div #bokintroduction id="bokintroduction"></div>
+          </mat-expansion-panel>
+          <mat-expansion-panel expanded="true" (opened)="panelOpenStateDes = true" (closed)="panelOpenStateDes = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Description
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div id="bokdescription"></div>
+          </mat-expansion-panel>
+<!--           <mat-expansion-panel expanded="true" (opened)="panelOpenStateRel = true" (closed)="panelOpenStateRel = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Relations
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div id="bokrelations"></div>
+          </mat-expansion-panel> -->
+          <!--           <mat-expansion-panel (opened)="panelOpenStateSki = true" (closed)="panelOpenStateSki = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Skills
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div id="bokskills"></div>
+          </mat-expansion-panel> -->
+<!--           <mat-expansion-panel (opened)="panelOpenStateVer = true" (closed)="panelOpenStateVer = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Versioning
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div id="bokversioning"></div>
+          </mat-expansion-panel> -->
+        </mat-accordion>
+
+
+        <!--     <button type="button" class="float-right btn btn-link btn-xs"
+      (click)="showDC.classList.contains('hidden') ? showDC.className = '' : showDC.className = 'hidden' ">
+      <i [tooltip]="showDC.classList.contains('hidden')? 'Show' : 'Hide'"
+        [ngClass]="showDC.classList.contains('hidden')? 'fa fa-chevron-up' : 'fa fa-chevron-down'"></i>
+    </button> -->
+
+
         <section *ngIf="resultNodes && resultNodes.length>0 && !isConceptInfo && textInfo.innerHTML.length < 15">
           <mat-card-title> Results: {{resultNodes.length}} </mat-card-title>
           <ul>

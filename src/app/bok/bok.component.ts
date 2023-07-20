@@ -23,13 +23,20 @@ export class BokComponent implements AfterViewInit {
   isConceptInfo = false;
   currentConceptCode = '';
 
+  panelOpenStateDes = false;
+  panelOpenStateAbs = false;
+  panelOpenStateInt = false;
+  panelOpenStateRel = false;
+  panelOpenStateSki = false;
+  panelOpenStateVer = false;
+
   @ViewChild(MatAccordion) accordion: MatAccordion | undefined;
 
   constructor(private route: ActivatedRoute) { }
 
   async ngAfterViewInit(): Promise<void> {
 
-    const result = await bok.visualizeBOKData('https://ucgis-bok-dev-default-rtdb.firebaseio.com/', 'current');
+    const result = await bok.visualizeBOKData('https://ucgis-bok-default-rtdb.firebaseio.com/', 'current');
    // const result = await bok.visualizeBOKData('https://ucgis-bok-default-rtdb.firebaseio.com/', 'current');
     // bok.visualizeBOKData('https://ucgis-bok-backup-default-rtdb.firebaseio.com/')
     //  bok.visualizeBOKData('https://ucgis-bok-backup-default-rtdb.firebaseio.com/', '#graph', '#textInfo')
